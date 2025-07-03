@@ -27,6 +27,8 @@ find "$RAW_DIR" -type f -name '*.md' | while read -r src; do
   echo '' >> "$dest"
   echo '[extra]' >> "$dest"
   echo 'display_published = true' >> "$dest"
+  echo 'toc = true' >> "$dest"
+  echo 'author = "5q2bc"' >> "$dest"
   echo '+++' >> "$dest"
   echo '' >> "$dest"
 
