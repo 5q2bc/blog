@@ -147,3 +147,66 @@
   /* background: #1976d2; */
   color: #fff;
 }
+
+/* Zola anchor link style */
+.zola-anchor {
+  margin-left: 0.3em;
+  text-decoration: none;
+  opacity: 0.5;
+  font-size: 0.9em;
+  transition: opacity 0.2s;
+}
+.zola-anchor:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* 見出しにマウスオーバー時のみアンカー表示したい場合 */
+h1:hover .zola-anchor,
+h2:hover .zola-anchor,
+h3:hover .zola-anchor,
+h4:hover .zola-anchor,
+h5:hover .zola-anchor,
+h6:hover .zola-anchor {
+  opacity: 1;
+}
+
+/* Zola anchor link: ヘッダの::beforeでアンカー機能を実装 */
+h1[id]::before,
+h2[id]::before {
+  content: '##';
+  display: inline-block;
+  margin-right: 0.3em;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
+  content: '###';
+  display: inline-block;
+  margin-right: 0.3em;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+h1[id]:hover::before,
+h2[id]:hover::before,
+h3[id]:hover::before,
+h4[id]:hover::before,
+h5[id]:hover::before,
+h6[id]:hover::before {
+  opacity: 1;
+}
+
+/* クリックでアンカー付きURLをコピー */
+h1[id]::before,
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+h6[id]::before {
+  pointer-events: auto;
+}
