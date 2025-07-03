@@ -55,3 +55,22 @@ header_nav = [
   { url = "/about", name_en = "/about/", name_jp = "/concernant/" },
   { url = "/blog", name_en = "/blog/", name_jp = "/blog/" }
 ]
+
+# Sharing options
+# Comment and uncomment to enable or disable sharing options
+# If you wanna add a sharing option, read user documentation :
+# Tranquilpeak configuration > Theme configuration > sharing-options
+[[extra.sharingOptions]]
+  name = "X"
+  icon = "fa-x-twitter"
+  url = "https://x.com/intent/post?url=%s&text=%t"
+
+[[extra.sharingOptions]]
+  name = "B!"
+  icon = "fa-hatena"
+  url = "https://b.hatena.ne.jp/entry/%s"
+
+[[extra.sharingOptions]]
+  name = "Facebook"
+  icon = "fa-facebook-official"
+  url = "https://www.facebook.com/sharer/sharer.php?u=%s"

@@ -47,6 +47,8 @@
         {{ page.content | safe }}
     </div>
 
+    {% include "partials/share-links.html" %}
+
     {% if page.taxonomies.tags %}
     <footer class="post-tags">
         {% for tag in page.taxonomies.tags %}
