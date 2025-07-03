@@ -71,3 +71,33 @@ if (document.readyState === 'loading') {
 } else {
     new ThemeManager();
 }
+
+// --- コードブロックにCopy用ボタンを追加 ---
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('pre > code').forEach(function (codeBlock) {
+    const pre = codeBlock.parentElement;
+    // すでにボタンがある場合は追加しない
+    if (pre.parentElement.classList.contains('code-block-wrapper')) return;
+    // ラッパーdivを作成
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block-wrapper';
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+    // Copy用ボタンを作成
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.type = 'button';
+    btn.textContent = 'Copy';
+    btn.style.position = 'absolute';
+    btn.style.top = '8px';
+    btn.style.right = '8px';
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(codeBlock.innerText).then(function () {
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 1500);
+      });
+    });
+    wrapper.appendChild(btn);
+    wrapper.style.position = 'relative';
+  });
+});

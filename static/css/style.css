@@ -123,3 +123,27 @@
 .webring {
   margin: .375rem;
 }
+
+/* コードブロック用コピー機能 */
+.code-block-wrapper {
+  position: relative;
+}
+.copy-btn {
+  background: inherit;
+  color:  #C5C8C6;
+  border: 1px solid #C5C8C6;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.95em;
+  font-family: inherit;
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  transition: background 0.2s, color 0.2s;
+}
+.copy-btn:hover {
+  /* background: #1976d2; */
+  color: #fff;
+}
