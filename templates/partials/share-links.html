@@ -1,0 +1,14 @@
+<div class="share-links">
+  <span>Share:</span>
+  {% for share in config.extra.sharingOptions %}
+    {% if share.name == "X" %}
+      <a class="share-btn" href="{{ share.url | replace(from="%s", to=page.permalink) | replace(from="%t", to=page.title ~ '｜' ~ config.title) }}" target="_blank" rel="noopener noreferrer">
+        <i class="fa {{ share.icon }}"></i> {{ share.name }}
+      </a>
+    {% else %}
+      <a class="share-btn" href="{{ share.url | replace(from="%s", to=page.permalink) }}" target="_blank" rel="noopener noreferrer">
+        <i class="fa {{ share.icon }}"></i> {{ share.name }}
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
