@@ -12,7 +12,7 @@ toc = true
 よく使う小技的なものや、VSCodeのタスク機能を割り当ててコマンド実行をさせている方も多いんじゃないでしょうか。  
 
 VSCodeのキーボードショートカット作成はkeybinding.jsonを編集することで可能で、キーボードショートカットごとに発動条件を"When"で指定することができます。  
-例えば
+例えば、
 ```json:keybinding.json
 	{
 	"key": "ctrl+shift+j",
