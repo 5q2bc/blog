@@ -35,8 +35,5 @@ find "$RAW_DIR" -type f -name '*.md' | while read -r src; do
   # 本文生成: 1つ目の # タイトル行を削除し、コードブロックのlang:filenameをlangに置換
   awk 'BEGIN{skip=0} {if(skip==0 && $0 ~ /^# /){skip=1; next} print}' "$src" | \
     sed -E 's/^```([a-zA-Z0-9_+-]+):[a-zA-Z0-9_.-]+/```\1/g' >> "$dest"
-
-  # コードブロックのlang:filenameをlangに置換
-  sed -E 's/^```([a-zA-Z0-9_+-]+):[a-zA-Z0-9_.-]+/```\1/g' "$src" > "$dest"
 done
 
