@@ -17,8 +17,9 @@ find "$RAW_DIR" -type f -name '*.md' | while read -r src; do
   # ファイルの最終更新日を取得
   mod_date=$(date -r "$src" +%Y-%m-%d)
 
-  # 1行目から最初の # タイトル を探し、タイトルとして抽出
-  title=$(grep -m1 '^# ' "$src" | sed 's/^# //')
+    # ファイル名（拡張子除く）をタイトルとして抽出
+    filename=$(basename "$src")
+    title="${filename%.*}"
 
   # frontmatter生成
   echo '+++' > "$dest"
@@ -35,5 +36,6 @@ find "$RAW_DIR" -type f -name '*.md' | while read -r src; do
   # 本文生成: 1つ目の # タイトル行を削除し、コードブロックのlang:filenameをlangに置換
   awk 'BEGIN{skip=0} {if(skip==0 && $0 ~ /^# /){skip=1; next} print}' "$src" | \
     sed -E 's/^```([a-zA-Z0-9_+-]+):[a-zA-Z0-9_.-]+/```\1/g' >> "$dest"
+  rm -f "$src"
 done
 
