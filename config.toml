@@ -51,8 +51,8 @@ enable_search = true
 
 ## Navigation
 header_nav = [
-  { url = "/", name_en = "/home/", name_jp = "/accueil/" },
-  { url = "/about", name_en = "/about/", name_jp = "/concernant/" },
+  { url = "/", name_en = "/home/", name_jp = "/home/" },
+  { url = "/about", name_en = "/about/", name_jp = "/about/" },
   { url = "/blog", name_en = "/blog/", name_jp = "/blog/" }
 ]
 
