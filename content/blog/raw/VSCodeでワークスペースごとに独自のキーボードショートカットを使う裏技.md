@@ -1,21 +1,12 @@
-+++
-title = "はじめに"
-date = 2025-07-06
-
-[extra]
-display_published = true
-toc = true
-author = "5q2bc"
-+++
 
 
-
+# はじめに
 皆さんはVSCodeに独自のキーボードショートカット追加していますか?  
 よく使う小技的なものや、VSCodeのタスク機能を割り当ててコマンド実行をさせている方も多いんじゃないでしょうか。  
 
 VSCodeのキーボードショートカット作成はkeybinding.jsonを編集することで可能で、キーボードショートカットごとに発動条件を"When"で指定することができます。  
 例えば
-```json
+```json:keybinding.json
 	{
 	"key": "ctrl+shift+j",
 	"command": "workbench.action.terminal.focus",
@@ -63,7 +54,7 @@ whenの詳しい使い方については [公式の解説](https://code.visualst
 まず使いたいワークスペースを開き、VSCodeのワークスペースごとの設定情報を入れる`.vscode/setting.json`フォルダに移動します。(なければ作成してください)
 
 次に中に次の１行を追加します。
-```json
+```json:setting.json
 {
 	"workspaceKeybindings.hogehoge_ws.enabled": true,
 }
@@ -80,7 +71,7 @@ whenの詳しい使い方については [公式の解説](https://code.visualst
 keybinding.jsonを編集して、ショートカットがワークスペース側で作ったフラグを判定できるようにします。
 
 具体的には下記のようにします。フラグの名前はそれぞれのワークスペースでつけたものと合わせてください。
-```json
+```json:keybinding.json
 	{
 	"key": "ctrl+shift+q",
 	"command": "command_1",
